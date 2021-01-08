@@ -1,13 +1,14 @@
 # Mantis Place redesign
 This project was created using [Expo-CLI](https://docs.expo.io/workflow/expo-cli/)
 
-## Done (Jan 7, 2020)
+## Done (Jan 8, 2020)
 * Created fresh project with Expo-CLI
-* Added react-native-paper
-* Added fonts
+* Created Mantis component, displaying items
+* Seperated header and mantis components
 
 ## To Do (shorter term)
-* Design the actual application (optimized for Android)
+* Fix link to image of each mantis
+* Design the pages (and make them look better)
 
 ## Dependencies
 For fonts:
