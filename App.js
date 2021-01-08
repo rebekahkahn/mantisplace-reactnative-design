@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { AppRegistry } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { name as appName } from './app.json';
+import Main from './components/MainComponent';
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>This is the scaffold for the actual app.</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  let [fontsLoaded] = useFonts({
+    'Aladin': require('./assets/fonts/Aladin-Regular.ttf'), 
+    'Raleway': require('./assets/fonts/Raleway-Regular.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <PaperProvider>
+        <Main />
+      </PaperProvider>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+AppRegistry.registerComponent(appName, () => App);
