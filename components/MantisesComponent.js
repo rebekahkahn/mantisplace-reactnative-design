@@ -1,15 +1,18 @@
 import React from 'react';
-import Header from './HeaderComponent';
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
 import { Card, Title } from 'react-native-paper';
+import Header from './HeaderComponent';
+// <Card onPress={() => props.onPress(item.id)}>
 
 function Mantises(props) {
     const renderMantisItem = ( {item} ) => {
         return (
             <View style={styles.card}>
-            <Card>
+            <Card onPress={() => props.onSelection(item.id)}>
                 <Card.Content>
-                    <Title style={styles.title}>{item.name}</Title>
+                    <Title style={styles.title}>
+                        {item.name}
+                    </Title>
                 </Card.Content>
                 <Card.Cover style={styles.image} source={require('./shared/images/mantis_standin.jpg')} />
             </Card>
@@ -24,7 +27,7 @@ function Mantises(props) {
                 numColumns={2}
                 data={props.mantises}
                 renderItem={renderMantisItem}
-                keyExtractor= {item=> item.id.toString()}
+                keyExtractor= {item => item.id.toString()}
             />
         </ScrollView>
     );
@@ -35,9 +38,12 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         marginBottom: 10,
+        marginTop: 3,
+        marginLeft: 3,
+        marginRight: 3
     },
     title: {
-        height: 70,
+        height: 90,
         borderColor: 'red'
     },
     image: {

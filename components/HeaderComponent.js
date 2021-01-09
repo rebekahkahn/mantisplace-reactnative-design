@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#59916d',
       fontFamily: 'Aladin',
       fontSize: 30,
-      color: '#202020'
+      color: '#202020',
     }
 });
 
