@@ -1,37 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
 import { Card, Title } from 'react-native-paper';
-import Header from './HeaderComponent';
-// <Card onPress={() => props.onPress(item.id)}>
+import { MANTISES } from '../shared/mantises';
 
-function Mantises(props) {
-    const renderMantisItem = ( {item} ) => {
-        return (
-            <View style={styles.card}>
-            <Card onPress={() => props.onSelection(item.id)}>
-                <Card.Content>
-                    <Title style={styles.title}>
-                        {item.name}
-                    </Title>
-                </Card.Content>
-                <Card.Cover style={styles.image} source={require('./shared/images/mantis_standin.jpg')} />
-            </Card>
-            </View>
-        );
-    };
+class Mantises extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            mantises: MANTISES,
+        };
+    }
 
-    return (
-        <ScrollView>
-            <Header />
-            <FlatList 
-                numColumns={2}
-                data={props.mantises}
-                renderItem={renderMantisItem}
-                keyExtractor= {item => item.id.toString()}
-            />
-        </ScrollView>
-    );
+    static navigationOptions = {
+        title: 'Mantises'
+    }
+
+    render() {
+        const { navigate } = this.props.navigation;
+        const renderMantisItem = ({item}) => {
+            return (
+                <View style={styles.card}>
+                <Card onPress={() => navigate('MantisInfo', { mantisId: item.id })}>
+                    <Card.Content>
+                        <Title style={styles.title}>
+                            {item.name}
+                        </Title>
+                    </Card.Content>
+                    <Card.Cover style={styles.image} source={require('./shared/images/mantis_standin.jpg')} />
+                </Card>
+                </View>
+            );
+
+        };
+
+       return (
+            <ScrollView>
+                <FlatList 
+                    numColumns={2}
+                    data={this.state.mantises}
+                    renderItem={renderMantisItem}
+                    keyExtractor= {item => item.id.toString()}
+                />
+            </ScrollView>
+       );
+    }
 }
+
 
 const styles = StyleSheet.create({
     card: {
@@ -44,7 +58,6 @@ const styles = StyleSheet.create({
     },
     title: {
         height: 90,
-        borderColor: 'red'
     },
     image: {
         margin: 10

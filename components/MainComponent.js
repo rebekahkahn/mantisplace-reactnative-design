@@ -1,36 +1,71 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 import Mantises from './MantisesComponent';
 import MantisInfo from './MantisInfoComponent';
-import { MANTISES } from '../shared/mantises';
+import { Appbar } from 'react-native-paper';
+
+const MantisesNavigator = createStackNavigator (
+    {
+        Mantises: { screen: Mantises },
+        MantisInfo: { screen: MantisInfo }
+    },
+    {
+        initialRouteName: 'Mantises',
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#59916d',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerTitle: () => (
+                <View>
+                    <Text
+                        style={styles.container}>Mantis Place
+                    </Text>
+                </View>
+            ),
+            headerLeft: () => (
+                <View>
+                    <Appbar.Action icon="format-align-justify"/>
+                </View>
+            ),
+            headerRight: () => (
+                <View style={{backgroundColor: '#59916d', flexDirection: 'row'}}>
+                    <Appbar.Action icon="magnify" style={styles.icon}/>
+                    <Appbar.Action icon="account" />
+                    <Appbar.Action icon="cart"  />
+                </View>
+            )
+        }
+    }
+);
+
+const AppNavigator = createAppContainer(MantisesNavigator);
 
 class Main extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            mantises: MANTISES,
-            selectedMantis: null
-        };
-    }
-
-    onMantisSelect(mantisId) {
-        this.setState({selectedMantis: mantisId})
-    }
-
     render() {
         return (
-            <View>
-                <Mantises 
-                    mantises={this.state.mantises}
-                    onSelection={mantisId => this.onMantisSelect(mantisId)} 
-                />
-                <MantisInfo
-                    mantis={this.state.mantises.filter(
-                        mantis => mantis.id === this.state.selectedMantis)[0]}
-                />
+            <View style={{flex: 1}}>
+                <AppNavigator />
             </View>
-        )
+        );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+      backgroundColor: '#59916d',
+      fontFamily: 'Aladin',
+      fontSize: 30,
+      color: '#202020',
+    },
+    icons: {
+        color:'white',
+    }
+});
 
 export default Main;
