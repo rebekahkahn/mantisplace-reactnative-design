@@ -2,16 +2,17 @@
 
 This project was created using [Expo-CLI](https://docs.expo.io/workflow/expo-cli/). Optimizing for Android, then later tweaking for web and ios.
 
-## Done (Jan 24, 2020)
+NOTE: After today, I am moving back to working on the react project. I will add logic there first (involving hooks and redux); then will translate to here for practice.
 
-- Made changes to stack navigator design
-- Added drawer navigation
-- Modified mantisinfo component
+## Done (Jan 25, 2020)
+
+- Modifying stylesheet for mantisinfo component
 
 ## To Do
 
-- Working on formatting
+- StyleSheet formatting
 - Make navigation header show the product name rather than "Mantis Info"
+- Add react-redux
 
 ## Dependencies
 
