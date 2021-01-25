@@ -6,9 +6,11 @@ This project was created using [Expo-CLI](https://docs.expo.io/workflow/expo-cli
 
 - Made changes to stack navigator design
 - Added drawer navigation
+- Modified mantisinfo component
 
 ## To Do
 
+- Working on formatting
 - Make navigation header show the product name rather than "Mantis Info"
 
 ## Dependencies
