@@ -1,6 +1,8 @@
 # Mantis Place redesign
 
-This project was created using [Expo-CLI](https://docs.expo.io/workflow/expo-cli/). Optimizing for Android, then later tweaking for web and ios.
+This project was created using [Expo-CLI](https://docs.expo.io/workflow/expo-cli/). Optimizing for Android, then later tweaking for iOS.
+
+Here is a live view of the design so far on [snack](https://snack.expo.io/7ZhBVKvqw).
 
 NOTE: After today, I am moving back to working on the react project. I will add logic there first (involving hooks and redux); then will translate to here for practice.
 
