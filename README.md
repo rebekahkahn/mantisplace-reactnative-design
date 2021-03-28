@@ -4,9 +4,9 @@ This project was created using [Expo-CLI](https://docs.expo.io/workflow/expo-cli
 
 NOTE: After today, I am moving back to working on the react project. I will add logic there first (involving hooks and redux); then will translate to here for practice.
 
-## Done (Jan 25, 2020)
+## Done (March 28, 2021)
 
-- Modifying stylesheet for mantisinfo component
+- Added screenshots of what has been completed so far.
 
 ## To Do
 
