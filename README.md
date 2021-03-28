@@ -8,6 +8,14 @@ NOTE: After today, I am moving back to working on the react project. I will add 
 
 - Added screenshots of what has been completed so far.
 
+## Screenshots
+
+- Products Page
+  ![productspage](https://github.com/rebekahkahn/mantisplace-reactnative-design/blob/master/shared/screenshots/products-page.png)
+
+- Single Product Page
+  ![productpage](https://github.com/rebekahkahn/mantisplace-reactnative-design/blob/master/shared/screenshots/product-page.png)
+
 ## To Do
 
 - StyleSheet formatting
